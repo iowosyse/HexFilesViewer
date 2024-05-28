@@ -27,7 +27,7 @@ public class Main {
 
                 if (byteCount % 16 == 0) {
                     //if byteCount started on -1 it gives a single byte and a single character, so we subtract 16 in this line
-                    System.out.printf("%08x  %16s  %16s%n", byteCount - 16, byteString, charString);
+                    System.out.printf("%08x  %s  %s%n", byteCount - 16, byteString, charString);
                     //restart the strings
                     byteString.setLength(0);
                     charString.setLength(0);
@@ -36,7 +36,8 @@ public class Main {
 
             //in case the last line read doesn't take every byte.
             if (byteCount % 16 != 0) {
-                System.out.printf("%08x  %16s %16s%n", byteCount - (byteCount % 16), byteString, charString);
+                //adding the "-" in the formater makes it align to the left
+                System.out.printf("%08x  %-64s  %-16s%n", byteCount - (byteCount % 16), byteString, charString);
             }
 
             //closing stream
