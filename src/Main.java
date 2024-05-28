@@ -2,13 +2,13 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        try (FileInputStream fis = new FileInputStream("FILE.txt")
-        ) {
+        try (FileInputStream fis = new FileInputStream("FILE.txt")) {
             int byteCount = 0;
             StringBuilder byteString = new StringBuilder();
             StringBuilder charString = new StringBuilder();
+
             while (true) {
-                //reads every byte on the line, cannot be saved in byte, must be integer
+                //reads byte by byte, cannot be saved in byte, must be integer
                 int b = fis.read();
                 //fis.read(); returns -1 when reaching the end of the file
                 if (b == -1) {
